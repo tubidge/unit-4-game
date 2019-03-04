@@ -1,9 +1,11 @@
 .row {
     border: 1px solid grey;
+    margin: 5px;
 }
 
 .col {
     border: 1px solid grey;
+    /* margin: 5px !important; */
 }
 
 button {

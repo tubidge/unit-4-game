@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Document</title>
 </head>
 
@@ -21,33 +21,38 @@
         </div>
         <div class="row">
             <div class="column col-sm-6">
-                <div id="target-score">
-                    <h4>Target Score</h4>
+                <div>
+                    <p><h4>Target Score</h4></p>  
+                    <p><h2 id="target-score"></h2></p> 
                 </div>
             </div>
-            <div class="column col-sm-6">
-                <p id="wins"><strong>Wins:</strong></p>
-                <p id="losses"><strong>Losses:</strong></p>
+            <div class="column col-sm-3">
+                <p><h4>Wins</h4></p>
+                <p><h2 id="wins">0</h2></p>
+            </div>
+            <div class="col col-sm-3">
+                <p><h4>Losses</h4></p>
+                <p><h2 id="losses">0</h2></p>
             </div>
         </div>
         <div class="row">
-            <button id="crys-one">
+            <button id="crys-one" class="crystal-button">
                 <img src="assets/images/Crystal one.jpg" alt="crystal one" width="140px">
             </button>
-            <button id="crys-two">
+            <button id="crys-two" class="crystal-button">
                 <img src="assets/images/Crystal two.jpg" alt="crystal two" width="140px">
             </button>
-            <button id="crys-three">
+            <button id="crys-three" class="crystal-button">
                 <img src="assets/images/Crystal three.jpg" alt="crystal three" width="140px">
             </button>
-            <button id="crys-four">
+            <button id="crys-four" class="crystal-button">
                 <img src="assets/images/Crystal four.jpg" alt="crystal four" width="90px">
             </button>
         </div>
         <div class="row">
-            <div id="player-score">
-                <p>Your Score:</p>
-
+            <div">
+                <p>Your Score</p>
+                <h2 id="player-score"></h2>
             </div>
         </div>
     </div>
