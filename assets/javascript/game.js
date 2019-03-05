@@ -1,3 +1,4 @@
+// declaring variables to hold all necessary values
 var targetScore;
 var wins = 0;
 var losses = 0;
@@ -9,41 +10,27 @@ var crysThreeVal = 0;
 var crysFourVal = 0;
 
 
-
+// on page load, run 'reset' function
 $(document).ready(function() {
     reset();
+});
+
+// reset function sets score to 0, selects new target score, resets array, and  runs 'crystal' functions to assigns values to crystals.
+function reset() {
+    playerScore = 0;
+    targetScore = Math.floor(Math.random() * 101) + 19;
+    console.log("Target Score: " + targetScore);
+    $("#target-score").text(targetScore);
+    $("#player-score").text(playerScore);
+    numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     crystalOne();
     crystalTwo();
     crystalThree();
     crystalFour();
-});
-
-function reset() {
-    playerScore = 0;
-    targetScore = Math.floor(Math.random() * 101) + 19;
-    console.log(targetScore);
-    $("#target-score").text(targetScore);
-    $("#player-score").text(playerScore);
-    // crysOneVal = numberOptions[(Math.floor(Math.random() * 12))];
-    // console.log(crysOneVal);
-    // crysTwoVal = numberOptions[(Math.floor(Math.random() * 12))];
-    // console.log(crysTwoVal);
-    // crysThreeVal = numberOptions[(Math.floor(Math.random() * 12))];
-    // console.log(crysThreeVal);
-    // crysFourVal = numberOptions[(Math.floor(Math.random() * 12))];
-    // console.log(crysFourVal);
-    // for (var i = 0; i < 4; i++) {
-    //     var rando = Math.floor(Math.random() * 11) + 1;
-    //     if (rando === numberOptions[0] || rando === numberOptions[1] || rando === numberOptions[2]) {
-    //         rando = Math.floor(Math.random() * 11) + 1;
-    //     } else {
-    //         numberOptions.push(rando);
-    //     };
-    // };
-    // console.log("Number Options: " + numberOptions);
 };
 
-// This function grabs a random number out of the array and assigns it to crysOne.
+// These four 'crystal' functions assign four different numbers from a range (array) of 1-12.
+// Each assigned number is removed from the array so it cannot be assigned more than once.
 function crystalOne() {
     // Slice a random number from the array. Assign it to crysOneVal.
     var i = (Math.round(Math.random() * 11));
@@ -53,11 +40,12 @@ function crystalOne() {
     // Splice that same number from the array.
     numberOptions.splice(i,1);
     console.log("numberOptions: " + numberOptions);
+    // assign a value to the crystal's html element
     $("#crys-one").attr("data-crystalvalue", crysOneVal);
 };
 
 function crystalTwo() {
-    // Slice a random number from the array. Assign it to crysOneVal.
+    // Slice a random number from the array, excluding the previously selected number. Assign it to crysTwoVal.
     var i = (Math.round(Math.random() * 10));
     console.log(i);
     crysTwoVal = numberOptions.slice(i, i + 1);
@@ -65,11 +53,12 @@ function crystalTwo() {
     // Splice that same number from the array.
     numberOptions.splice(i, 1);
     console.log("numberOptions: " + numberOptions);
+    // assign a value to the crystal's html element
     $("#crys-two").attr("data-crystalvalue", crysTwoVal);
 };
 
 function crystalThree() {
-    // Slice a random number from the array. Assign it to crysOneVal.
+    // Slice a random number from the array, excluding the previously selected number. Assign it to crysThreeVal.
     var i = (Math.round(Math.random() * 9));
     console.log(i);
     crysThreeVal = numberOptions.slice(i, i + 1);
@@ -77,11 +66,12 @@ function crystalThree() {
     // Splice that same number from the array.
     numberOptions.splice(i, 1);
     console.log("numberOptions: " + numberOptions);
+    // assign a value to the crystal's html element
     $("#crys-three").attr("data-crystalvalue", crysThreeVal);
 };
 
 function crystalFour() {
-    // Slice a random number from the array. Assign it to crysOneVal.
+    // Slice a random number from the array, excluding the previously selected number. Assign it to crysFourVal.
     var i = (Math.round(Math.random() * 8));
     console.log(i);
     crysFourVal = numberOptions.slice(i, i + 1);
@@ -89,17 +79,19 @@ function crystalFour() {
     // Splice that same number from the array.
     numberOptions.splice(i, 1);
     console.log("numberOptions: " + numberOptions);
+    // assign a value to the crystal's html element
     $("#crys-four").attr("data-crystalvalue", crysFourVal);
 };
 
+// when a crystal is clicked, add that crystals value to the player's score
 $(".crystal-button").click(function() {
     console.log($(this).attr("data-crystalvalue"));
     var i = ($(this).attr("data-crystalvalue"));
     i = parseInt(i);
-    console.log(typeof(i));
     playerScore += i;
     console.log("Player Score: " + playerScore);
-    $("#player-score").text(playerScore);    
+    $("#player-score").text(playerScore);   
+    // when player matches target score, declare him/her a winner, add 1 to Wins, reset the game. 
     if (playerScore === targetScore) {
         $("#player-score").text(playerScore);
         setTimeout(function() {
@@ -108,7 +100,7 @@ $(".crystal-button").click(function() {
             $("#wins").text(wins);
             reset();
         }, 100);
-        
+   // if player score exceeds target score, declare him/her a loser, add 1 to Losses, reset the game.
     } else if (playerScore > targetScore) {
         $("#player-score").text(playerScore);
         setTimeout(function() {

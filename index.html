@@ -14,10 +14,21 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1>Crystal Collector</h1>
+            <div class="col col-sm-12">
+                <h1>Crystal Collector</h1>
+            </div>
         </div>
         <div class="row">
-            <h3>Game Instructions</h3>
+            <div class="col col-sm-12">
+                <h3>Game Instructions</h3>
+                <ul>
+                    <li>You will be given a random <b>Target Score</b> at the start of the game.</li>
+                    <li><b>Click on a crystal</b> below to add a specific amount of points to your score.</li>
+                    <li>You <b>win the game</b> by matching your score to the Target Score.</li>
+                    <li>You <b>lose the game</b> if your score exceeds the Target Score.</li>
+                    <li>The value of each crystal will remain hidden from you, and will change when starting a new game.</li>
+                </ul>
+            </div>
         </div>
         <div class="row">
             <div class="column col-sm-6">
@@ -35,23 +46,31 @@
                 <p><h2 id="losses">0</h2></p>
             </div>
         </div>
-        <div class="row">
-            <button id="crys-one" class="crystal-button">
-                <img src="assets/images/Crystal one.jpg" alt="crystal one" width="140px">
-            </button>
-            <button id="crys-two" class="crystal-button">
-                <img src="assets/images/Crystal two.jpg" alt="crystal two" width="140px">
-            </button>
-            <button id="crys-three" class="crystal-button">
-                <img src="assets/images/Crystal three.jpg" alt="crystal three" width="140px">
-            </button>
-            <button id="crys-four" class="crystal-button">
-                <img src="assets/images/Crystal four.jpg" alt="crystal four" width="90px">
-            </button>
+        <div class="row" id="crystal-row">
+            <div class="col col-sm-3">
+                <button id="crys-one" class="crystal-button">
+                    <img src="assets/images/Crystal one.jpg" alt="crystal one" width="140px">
+                </button>
+            </div>
+            <div class="col col-sm-3">
+                <button id="crys-two" class="crystal-button">
+                    <img src="assets/images/Crystal two.jpg" alt="crystal two" width="140px">
+                </button>
+            </div>
+            <div class="col col-sm-3">
+                <button id="crys-three" class="crystal-button">
+                    <img src="assets/images/Crystal three.jpg" alt="crystal three" width="140px">
+                </button>
+            </div>
+            <div class="col col-sm-3">
+                <button id="crys-four" class="crystal-button">
+                    <img src="assets/images/Crystal four.jpg" alt="crystal four" width="140px">
+                </button>
+            </div>
         </div>
         <div class="row">
-            <div">
-                <p>Your Score</p>
+            <div class="col col-sm-12">
+                <p><h4>Your Score</h4></p>
                 <h2 id="player-score"></h2>
             </div>
         </div>
