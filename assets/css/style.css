@@ -12,3 +12,7 @@ button {
     border: none !important;
     padding: 0 0 0 0 !important;
 }
+
+body {
+    background-image: url("/assets/images/white-waves.png") !important;
+}
